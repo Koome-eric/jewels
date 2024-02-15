@@ -4,6 +4,7 @@ import styles from "app/ui/dashboard/donations/donations.module.css"; // Update 
 import Search from "app/ui/dashboard/search/search";
 import Pagination from "app/ui/dashboard/pagination/pagination";
 import { fetchDonations } from "app/lib/data"; // Update the import path
+import { deleteDonation } from "app/lib/actions";
 
 
 const DonationsPage = async ({ searchParams }) => {
@@ -53,6 +54,16 @@ const DonationsPage = async ({ searchParams }) => {
               <td>{donation.Amount}</td>
               <td>{donation.Campaign}</td>                           
               <td>{donation.Date}</td>
+              <td>
+                <div className={styles.buttons}>
+                  <form action={deleteDonation}>
+                    <input type="hidden" name="id" value={donation._id} />
+                    <button className={`${styles.button} ${styles.delete}`}>
+                      Delete
+                    </button>
+                  </form>
+                </div>
+              </td>
               
             </tr>
           ))}

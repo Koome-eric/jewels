@@ -1,15 +1,27 @@
-.container{
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .button{
-    padding: 5px 10px;
-    cursor: pointer;
-    
-  }
-  
-  .button:disabled{
-    cursor: not-allowed;
-  }
+.container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.buttonPrev {
+  background-color: rgb(220, 20, 103);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.buttonNext {
+  background-color: rgb(55, 206, 173);
+  border-radius: 8px;
+  color: #fff;
+}

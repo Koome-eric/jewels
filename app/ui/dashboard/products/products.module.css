@@ -13,11 +13,12 @@
 
 .addButton{
   padding: 10px;
-  background-color: rgb(55, 206, 173);
-  color: var(--text);
+  background-color: #000;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .table{

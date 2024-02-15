@@ -62,21 +62,45 @@ export const fetchProduct = async (id) => {
 
 export const fetchDonations = async (q, page) => {
   const regex = new RegExp(q, "i");
-
   const ITEM_PER_PAGE = 10;
 
   try {
     connectToDB();
     const count = await Donation.find({ Name: { $regex: regex } }).count();
-    const donations = await Donation.find({ Name: { $regex: regex } })
-      .limit(ITEM_PER_PAGE)
-      .skip(ITEM_PER_PAGE * (page - 1));
+    const donations = await Donation.aggregate([
+      { $match: { Name: { $regex: regex } } },
+      {
+        $addFields: {
+          // Split the date string into an array of [MM, DD, YYYY]
+          splitDate: { $split: ["$Date", "/"] }
+        }
+      },
+      {
+        $addFields: {
+          // Convert parts of the date to integers
+          year: { $toInt: { $arrayElemAt: ["$splitDate", 2] } },
+          month: { $toInt: { $arrayElemAt: ["$splitDate", 0] } },
+          day: { $toInt: { $arrayElemAt: ["$splitDate", 1] } }
+        }
+      },
+      { $sort: { year: -1, month: -1, day: -1 } }, // Sort by year, then month, then day in descending order
+      { $skip: ITEM_PER_PAGE * (page - 1) },
+      { $limit: ITEM_PER_PAGE },
+      {
+        $project: {
+          // Remove the temporary fields used for sorting
+          splitDate: 0, year: 0, month: 0, day: 0
+        }
+      }
+    ]);
+
     return { count, donations };
   } catch (err) {
     console.log(err);
     throw new Error("Failed to fetch donations!");
   }
 };
+
 
 export const fetchLatest = async (q, page) => {
   const regex = new RegExp(q, "i");
