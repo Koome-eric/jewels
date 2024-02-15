@@ -1,5 +1,5 @@
 import styles from "./sidebar.module.css";
-import MenuLink from "./menuLink/menuLink";
+import MenuLink from "./menulink/menulink";
 import Image from "next/image";
 import {
   MdDashboard,
