@@ -14,13 +14,13 @@ const Dashboard = () => {
         <div className={styles.cards}>
           <Card 
             title="Total Users" 
-            number="4" // Use the totalCount prop here
+            number="2" // Use the totalCount prop here
             detail={{ percentage: "4%", text: "than previous week" }}
             icon="users"
           />
           <Card 
             title="Total Donations" 
-            number="$15482675.98" 
+            number="$7,753,813.99" 
             detail={{ percentage: "10%", text: "increase from last month" }}
             icon="donations"
           />
