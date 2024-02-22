@@ -4,42 +4,43 @@ import styles from "./transactions.module.css";
 // Sample data
 const transactionData = [
   {
-    Date: "2024-02-16",
-    Name: "Shalom Tenenbaum",
-    Amount: "$25,000.00",
+    Date: "22/02/2024",
+    Name: "Mordechai Bamberger",
+    Amount: "$200",
     Type: "Donation",
     Fund: "JEWELS SCHOOL",
     Campaign: "Donation",
-    "Account Number": 5897,
+    "Account Number": null,
   },
   {
-    Date: "2024-02-16",
-    Name: "Shalom Tenenbaum",
-    Amount: "$25,000.00",
+    Date: "22/02/2024",
+    Name: "Esther Berman",
+    Amount: "$36",
     Type: "Donation",
     Fund: "JEWELS SCHOOL",
     Campaign: "Donation",
-    "Account Number": 8457,
+    "Account Number": null,
   },
   {
-    Date: "2024-02-16",
-    Name: "Matthew Schoenfeld",
-    Amount: "$1,000.00",
-    Type: "Donation",
+    Date: "22/02/2024",
+    Name: "Chuck Lowenstein",
+    Amount: "$250",
+    Type: "Payment for invoice 000005",
     Fund: "JEWELS SCHOOL",
-    Campaign: "Donation",
-    "Account Number": 6489,
+    Campaign: null,
+    "Account Number": null,
   },
   {
-    Date: "2024-02-15",
-    Name: "Howard Tzvi Schwartz",
-    Amount: "$600.00",
+    Date: "21/02/2024",
+    Name: "Gavriel Steele",
+    Amount: "$18",
     Type: "Donation",
     Fund: "JEWELS SCHOOL",
     Campaign: "Donation",
-    "Account Number": 9283,
+    "Account Number": null,
   },
 ];
+
 
 const Transactions = () => {
   return (
