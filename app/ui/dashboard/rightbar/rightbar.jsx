@@ -16,8 +16,7 @@ const Rightbar = () => {
           </h3>
           <span className={styles.subtitle}>Takes 4 minutes to learn</span>
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Reprehenderit eius libero perspiciatis recusandae possimus.
+            The new version of the JEWELS admin dashboard introduces several enhancements to improve your experience in managing donations, users, and constituents. 
           </p>
           <button className={styles.button}>
             <MdPlayCircleFilled />
