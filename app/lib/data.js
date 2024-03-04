@@ -71,27 +71,13 @@ export const fetchDonations = async (q, page) => {
       { $match: { Name: { $regex: regex } } },
       {
         $addFields: {
-          // Split the date string into an array of [MM, DD, YYYY]
-          splitDate: { $split: ["$Date", "/"] }
+          // Convert the date string to a date object
+          formattedDate: { $dateFromString: { dateString: "$Date", format: "%m-%d-%Y" } }
         }
       },
-      {
-        $addFields: {
-          // Convert parts of the date to integers
-          year: { $toInt: { $arrayElemAt: ["$splitDate", 2] } },
-          month: { $toInt: { $arrayElemAt: ["$splitDate", 0] } },
-          day: { $toInt: { $arrayElemAt: ["$splitDate", 1] } }
-        }
-      },
-      { $sort: { year: -1, month: -1, day: -1 } }, // Sort by year, then month, then day in descending order
+      { $sort: { formattedDate: -1 } }, // Sort by formattedDate in descending order
       { $skip: ITEM_PER_PAGE * (page - 1) },
-      { $limit: ITEM_PER_PAGE },
-      {
-        $project: {
-          // Remove the temporary fields used for sorting
-          splitDate: 0, year: 0, month: 0, day: 0
-        }
-      }
+      { $limit: ITEM_PER_PAGE }
     ]);
 
     return { count, donations };
@@ -100,7 +86,6 @@ export const fetchDonations = async (q, page) => {
     throw new Error("Failed to fetch donations!");
   }
 };
-
 
 export const fetchLatest = async (q, page) => {
   const regex = new RegExp(q, "i");
