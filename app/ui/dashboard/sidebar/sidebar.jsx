@@ -26,7 +26,7 @@ const menuItems = [
           icon: <MdSupervisedUserCircle className={styles.icon}/>,
         },
         {
-          title: "Contituents",
+          title: "Donors",
           path: "/dashboard/products",
           icon: <MdShoppingBag className={styles.icon}/>,
         },
