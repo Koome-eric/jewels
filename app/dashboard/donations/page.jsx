@@ -15,7 +15,7 @@ const DonationsPage = async ({ searchParams }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <Search placeholder="Search for a donor..." />
+        <Search placeholder="Search for a donation..." />
         <a href="https://docs.google.com/spreadsheets/d/1Sxbkf1pjKWG5crXYsbRYuxd4q1oyIneq/edit#gid=1924820094" target="_blank" rel="noopener noreferrer">
           <button className={styles.addButton}>Export</button>
         </a>
