@@ -1,26 +1,26 @@
 .container {
-  display: flex;
+  display: block;
   gap: 50px;
   margin-top: 20px;
 }
 
 .infoContainer {
-  flex: 1;
-  background-color: var(--bgSoft);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: transparent;
   padding: 20px;
   border-radius: 10px;
   font-weight: bold;
-  color: var(--textSoft);
-  height: max-content;
+  color: var(--textbold);
+  height: fit-content;
 }
 
-.imgContainer{
-  width: 100%;
-  height: 200px;
-  position: relative;
-  border-radius: 10px;
+.imgContainer {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 20px;
 }
 
 .formContainer {
@@ -65,3 +65,38 @@
   font-weight: 500;
 }
 
+.donationsContainer {
+  background-color: #ffff;
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--textSoft);
+  margin-top: 20px;
+}
+
+.donationsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.donationsTable th,
+.donationsTable td {
+  padding: 10px;
+  border: 1px solid #d0d5df;
+  text-align: left;
+}
+
+.donationsTable th {
+  background-color: #f5f7f8;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.donationsTable td {
+  color: var(--text);
+  font-weight: 400;
+}
+
+
+.donationsTable tr:nth-child(even) {
+  background-color: #f5f7f8;
+}
