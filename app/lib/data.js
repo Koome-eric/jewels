@@ -116,3 +116,16 @@ export const fetchDonationsForContactByName = async (contactName) => {
   }
 };
 
+export const getTotalDonatedAmount = async (contactName) => {
+  try {
+    const donations = await fetchDonationsForContactByName(contactName);
+    const totalAmount = donations.reduce((total, donation) => {
+      const amount = parseFloat(donation.Amount.replace(/[^0-9.-]+/g, ""));
+      return total + amount;
+    }, 0);
+    return totalAmount;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to calculate total donated amount!");
+  }
+};
