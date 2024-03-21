@@ -105,3 +105,14 @@ export const fetchLatest = async (q, page) => {
   }
 };
 
+export const fetchDonationsForContactByName = async (contactName) => {
+  try {
+    connectToDB();
+    const donations = await Donation.find({ Name: contactName }).sort({ Date: -1 });
+    return donations;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch donations for contact by name!");
+  }
+};
+
